@@ -16,11 +16,13 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1>Test</h1>
+    <>
       {Object.keys(userData).length === 0
-        ? <Searchbar updateUserData = {updateUserData} /> : <Dashboard backToSearch = {backToSearch}/>
+        ? <Searchbar updateUserData = {updateUserData} /> : <Dashboard
+            backToSearch = {backToSearch}
+            userData = {userData}
+          />
       }
-    </div>
+    </>
   )
 }

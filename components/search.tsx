@@ -12,7 +12,7 @@ const Searchbar: React.FC<Props> = ({updateUserData}) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    axios.post('/api/github', {
+    axios.post('/api/profile', {
       searchUser
     })
       .then(res => {
