@@ -19,7 +19,9 @@ const RepoList: React.FC<Props> = ({username}) => {
       username
     })
       .then(res => {
-        setRepoList(res.data)
+        // let repoData = res.data.filter((repo: {description: string}) => !repo.description.includes("README"))
+        let repoData = res.data.sort((a, b) => (a.updated_at < b.updated_at) ? 1 : -1)
+        setRepoList(repoData)
       })
       .catch(err => console.error(err))
   },[username])
@@ -35,7 +37,6 @@ const RepoList: React.FC<Props> = ({username}) => {
               description = {repo.description}
               language = {repo.language}
               url = {repo.svn_url}
-
             />
           ))}
         </RepoContainer>
