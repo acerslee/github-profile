@@ -1,17 +1,23 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Searchbar = () => {
+interface Props{
+  updateUserData: Function
+}
 
+const Searchbar: React.FC<Props> = ({updateUserData}) => {
   const [searchUser, setSearchUser] = useState<string>("");
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     axios.post('/api/github', {
       searchUser
     })
-      .then(res => console.log(res))
+      .then(res => {
+        updateUserData(res.data)
+      })
       .catch(err => console.error(err))
   };
 
@@ -21,14 +27,17 @@ const Searchbar = () => {
 
   return(
     <div>
-      <form onSubmit = {handleSubmit}>
+      <form
+        onSubmit = {handleSubmit}
+        aria-label = "Github username search"
+      >
         <input
           type = "text"
           placeholder = "Search Github user here"
           onChange = {handleChange}
         />
          <input
-          type = "submit"
+            type = "submit"
         />
       </form>
     </div>
