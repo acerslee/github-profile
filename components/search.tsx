@@ -2,11 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Searchbar = () => {
+
   const [searchUser, setSearchUser] = useState<string>("");
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(searchUser)
+
+    axios.post('/api/github', {
+      searchUser
+    })
+      .then(res => console.log(res))
+      .catch(err => console.error(err))
   };
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
