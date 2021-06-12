@@ -5,11 +5,10 @@ import RepoList from './repoList'
 import { Button } from "@material-ui/core"
 interface Props{
   backToSearch: Function,
-  userData: {}
+  userData: any
 }
 
 const DashboardContainer = styled.div`
-
 `;
 
 const GithubImage = styled.img`
@@ -18,17 +17,18 @@ const GithubImage = styled.img`
 
 const Dashboard: React.FC<Props> = ({backToSearch, userData}) => {
 
-  console.log(userData)
     return(
-      <DashboardContainer>
+      <>
         <Button
           variant = "contained"
           onClick = {() => backToSearch()}>
           Go back
         </Button>
-        <Profile userData = {userData} />
-        <RepoList username = {userData.login} />
-      </DashboardContainer>
+        <DashboardContainer>
+          <Profile userData = {userData} />
+          <RepoList username = {userData.login} />
+        </DashboardContainer>
+      </>
     )
 }
 

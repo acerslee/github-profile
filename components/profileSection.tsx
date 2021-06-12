@@ -1,5 +1,7 @@
+import styled from 'styled-components'
+import Image from 'next/image'
 
-type UserData = {
+interface UserDataProps {
   avatar_url: string,
   name: string,
   login: string,
@@ -11,21 +13,44 @@ type UserData = {
 }
 
 interface Props{
-  userData: UserData
+  userData: UserDataProps
 }
 
+const ProfileContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+
+const ProfileImage = styled(Image)`
+  border-radius: 100px;
+`
+
+const ProfileName = styled.p`
+  font-size: 2em;
+`
+
+const ProfileDetail = styled.p`
+  font-size: 1.2em;
+`
+
 const Profile: React.FC<Props> = ({userData}) => {
+
   return(
-    <div>
-      <img src = {userData.avatar_url} />
-        <p>{userData.name}</p>
-        <p>{userData.login}</p>
-        <p>{userData.bio}</p>
-        <p>{userData.location}</p>
-        <p>{userData.followers}</p>
-        <p>{userData.following}</p>
-        <p>{userData.public_repos} Repos</p>
-    </div>
+    <ProfileContainer>
+      <ProfileImage
+        src = {userData.avatar_url}
+        alt = "Github profile"
+        width = {200}
+        height = {200}
+      />
+        <ProfileName>{userData.name} ({userData.login})</ProfileName>
+        <ProfileDetail>{userData.bio}</ProfileDetail>
+        <ProfileDetail>{userData.location}</ProfileDetail>
+        <ProfileDetail>{userData.followers} Followers  {userData.following} Following</ProfileDetail>
+        <ProfileDetail>{userData.public_repos} Repos</ProfileDetail>
+    </ProfileContainer>
   )
 }
 

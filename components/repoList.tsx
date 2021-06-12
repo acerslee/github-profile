@@ -20,7 +20,7 @@ const RepoList: React.FC<Props> = ({username}) => {
     })
       .then(res => {
         // let repoData = res.data.filter((repo: {description: string}) => !repo.description.includes("README"))
-        let repoData = res.data.sort((a, b) => (a.updated_at < b.updated_at) ? 1 : -1)
+        let repoData: string[] = res.data.sort(((a: {updated_at: string}, b: {updated_at: string}) => (a.updated_at < b.updated_at) ? 1 : -1))
         setRepoList(repoData)
       })
       .catch(err => console.error(err))

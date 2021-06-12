@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import Searchbar from '../components/search';
 import Dashboard from '../components/dashboard';
-import Link from 'next/link';
 
 export default function Home() {
   const [userData, setUserData] = useState<object>({});
@@ -18,7 +16,8 @@ export default function Home() {
   return (
     <>
       {Object.keys(userData).length === 0
-        ? <Searchbar updateUserData = {updateUserData} /> : <Dashboard
+        ? <Searchbar updateUserData = {updateUserData} />
+        : <Dashboard
             backToSearch = {backToSearch}
             userData = {userData}
           />
