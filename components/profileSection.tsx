@@ -21,6 +21,8 @@ const ProfileContainer = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #262626;
+  color: #f2f2f2;
 `
 
 const ProfileImage = styled(Image)`
@@ -33,6 +35,7 @@ const ProfileName = styled.p`
 
 const ProfileDetail = styled.p`
   font-size: 1.2em;
+  margin: 0.5em !important;
 `
 
 const Profile: React.FC<Props> = ({userData}) => {
@@ -45,11 +48,11 @@ const Profile: React.FC<Props> = ({userData}) => {
         width = {200}
         height = {200}
       />
-        <ProfileName>{userData.name} ({userData.login})</ProfileName>
-        <ProfileDetail>{userData.bio}</ProfileDetail>
-        <ProfileDetail>{userData.location}</ProfileDetail>
-        <ProfileDetail>{userData.followers} Followers  {userData.following} Following</ProfileDetail>
-        <ProfileDetail>{userData.public_repos} Repos</ProfileDetail>
+      <ProfileName>{userData.name} ({userData.login})</ProfileName>
+      <ProfileDetail>{userData.bio}</ProfileDetail>
+      <ProfileDetail>{userData.location}</ProfileDetail>
+      <ProfileDetail>{userData.followers} Followers  {userData.following} Following</ProfileDetail>
+      <ProfileDetail>{userData.public_repos} Repos</ProfileDetail>
     </ProfileContainer>
   )
 }

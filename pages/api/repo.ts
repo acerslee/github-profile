@@ -2,7 +2,7 @@ import axios from "axios"
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const url = `https://api.github.com/users/${req.body.username}/repos`
+  const url = `https://api.github.com/users/${req.body.searchUser}/repos`
 
   await axios
     .get(url, {

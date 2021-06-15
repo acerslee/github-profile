@@ -13,14 +13,16 @@ const SearchComponent = styled.div`
 `
 
 const IntroHeader = styled.h1`
-
+  font-size: 3em;
 `
 
 export default function Home() {
   const [userData, setUserData] = useState<object>({});
+  const [userRepos, setUserRepos] = useState<any>({});
 
-  const updateUserData = (data: {}) => {
-    setUserData(data)
+  const updateUserData = (userProfileData: {}, repoData: (string | number)[]) => {
+    setUserData(userProfileData)
+    setUserRepos(repoData)
   }
 
   const backToSearch = () => {
@@ -38,12 +40,13 @@ export default function Home() {
       {Object.keys(userData).length === 0
         ?
           <SearchComponent>
-            <h1>Github Profile</h1>
+            <IntroHeader>Github Profile</IntroHeader>
             <Searchbar updateUserData = {updateUserData} />
           </SearchComponent>
         : <Dashboard
             backToSearch = {backToSearch}
             userData = {userData}
+            userRepos = {userRepos}
           />
       }
     </>
