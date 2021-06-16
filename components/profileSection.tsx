@@ -23,6 +23,7 @@ const ProfileContainer = styled.section`
   align-items: center;
   background-color: #262626;
   color: #f2f2f2;
+  padding-top: 1em;
 `
 
 const ProfileImage = styled(Image)`

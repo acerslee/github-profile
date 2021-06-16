@@ -35,7 +35,7 @@ const Searchbar: React.FC<Props> = ({updateUserData}) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(searchUser)
+
     axios.all([
       axios.post('/api/profile', {searchUser}),
       axios.post('/api/repo', {searchUser})

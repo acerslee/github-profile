@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
+import Header from '../components/head';
 import Searchbar from '../components/search';
 import Dashboard from '../components/dashboard';
 import styled from 'styled-components';
-import Head from 'next/head';
 
 const SearchComponent = styled.div`
   height: 100vh;
@@ -31,12 +31,7 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>Github Profile</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content="Visualization of a user's Github profile"></meta>
-        <meta charSet="UTF-8"></meta>
-      </Head>
+      <Header />
       {Object.keys(userData).length === 0
         ?
           <SearchComponent>
