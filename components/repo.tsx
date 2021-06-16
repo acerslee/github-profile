@@ -8,21 +8,27 @@ interface Props {
   url: string
 }
 
+const RepoLink = styled.a`
+  &&&{
+    text-decoration: none;
+    color: black;
+  }
+`
+
 const RepoCard = styled.div`
   border: 1px solid;
+  &: hover{
+    background-color: #f2c957;
+  }
 `
 
 const RepoName = styled.p`
   font-size: 2em;
+  font-family: 'Anonymous Pro', monospace;
 `
 
 const RepoDescription = styled.p`
   font-size: 1em;
-`
-
-
-const RepoURL = styled.p`
-
 `
 
 const RepoLabelContainer = styled.div`
@@ -57,18 +63,20 @@ const setLabelStyle = (language: string) => {
 
 const Repo: React.FC<Props> = ({ name, description, language, url }) => {
   return(
-    <RepoCard>
-      <RepoName>{name}</RepoName>
-      <RepoDescription>{description}</RepoDescription>
-      <RepoLabelContainer>
-        <RepoLanguageLabel style = {setLabelStyle(language)} />
-        <RepoLanguage>{language}</RepoLanguage>
-      </RepoLabelContainer>
-      <a
-        href = {url}>
-      <FaGithub />
-      </a>
-    </RepoCard>
+    <RepoLink
+      href = {url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <RepoCard>
+        <RepoName>{name}</RepoName>
+        <RepoDescription>{description}</RepoDescription>
+        <RepoLabelContainer>
+          <RepoLanguageLabel style = {setLabelStyle(language)} />
+          <RepoLanguage>{language}</RepoLanguage>
+        </RepoLabelContainer>
+      </RepoCard>
+    </RepoLink>
   )
 }
 

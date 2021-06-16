@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../components/head';
 import Searchbar from '../components/search';
 import Dashboard from '../components/dashboard';
 import styled from 'styled-components';
@@ -31,7 +30,6 @@ export default function Home() {
 
   return (
     <>
-      <Header />
       {Object.keys(userData).length === 0
         ?
           <SearchComponent>
