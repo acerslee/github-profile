@@ -23,7 +23,7 @@ const RepoCard = styled.div`
   border: 1px solid;
   margin: 0.3em;
   max-width: 20em;
-  height: auto;
+  height: 14em;
   > p, div {
     margin-left: 0.2em;
   }

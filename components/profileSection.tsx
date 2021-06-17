@@ -23,7 +23,7 @@ const ProfileContainer = styled.section`
   align-items: center;
   background-color: #262626;
   color: #f2f2f2;
-  padding-top: 1em;
+  padding: 1em 0;
 `
 
 const ProfileImage = styled(Image)`
@@ -34,12 +34,31 @@ const ProfileName = styled.p`
   font-size: 2em;
 `
 
+const BoxContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+`
+
+const ProfileBox = styled.div`
+  background-color: #383838;
+  margin: 0.2em;
+`
+
 const ProfileDetail = styled.p`
   font-size: 1.2em;
   margin: 0.5em !important;
 `
 
 const Profile: React.FC<Props> = ({userData}) => {
+
+  const boxesData = [userData.public_repos + ' Repos', userData.followers + ' Followers', userData.following + ' Following'];
+
+  const profileBoxes = boxesData.map((box: string | number, index: number) => (
+    <ProfileBox key = {index}>
+      <ProfileDetail>{box}</ProfileDetail>
+    </ProfileBox>
+  ));
 
   return(
     <ProfileContainer>
@@ -52,8 +71,9 @@ const Profile: React.FC<Props> = ({userData}) => {
       <ProfileName>{userData.name} ({userData.login})</ProfileName>
       <ProfileDetail>{userData.bio}</ProfileDetail>
       <ProfileDetail>{userData.location}</ProfileDetail>
-      <ProfileDetail>{userData.followers} Followers  {userData.following} Following</ProfileDetail>
-      <ProfileDetail>{userData.public_repos} Repos</ProfileDetail>
+      <BoxContainer>
+        {profileBoxes}
+      </BoxContainer>
     </ProfileContainer>
   )
 }
