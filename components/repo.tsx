@@ -5,7 +5,11 @@ interface Props {
   name: string,
   description: string,
   language: string,
-  url: string
+  url: string,
+  size: number,
+  forks: number,
+  stars: number,
+  watches: number
 }
 
 const RepoLink = styled.a`
@@ -17,6 +21,12 @@ const RepoLink = styled.a`
 
 const RepoCard = styled.div`
   border: 1px solid;
+  margin: 0.3em;
+  max-width: 20em;
+  height: auto;
+  > p, div {
+    margin-left: 0.2em;
+  }
   &: hover{
     background-color: #f2c957;
   }
@@ -25,6 +35,7 @@ const RepoCard = styled.div`
 const RepoName = styled.p`
   font-size: 2em;
   font-family: 'Anonymous Pro', monospace;
+  overflow-wrap: anywhere;
 `
 
 const RepoDescription = styled.p`
@@ -48,7 +59,7 @@ const RepoLanguageLabel = styled.span`
 `
 
 const RepoLanguage = styled.span`
-  margin-left: 0.5em;
+  margin-left: 0.3em;
 `
 
 const setLabelStyle = (language: string) => {
@@ -61,7 +72,16 @@ const setLabelStyle = (language: string) => {
   return {color: "#cccccc"}
 }
 
-const Repo: React.FC<Props> = ({ name, description, language, url }) => {
+const Repo: React.FC<Props> = ({
+  name,
+  description,
+  language,
+  url,
+  size,
+  forks,
+  stars,
+  watches
+  }) => {
   return(
     <RepoLink
       href = {url}

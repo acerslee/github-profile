@@ -6,6 +6,7 @@ interface Props{
 }
 
 const RepoContainer = styled.div`
+  background-color: #e6e6e6 !important;
   display: grid;
   grid-template-columns: auto auto auto auto;
   column-gap: normal;
@@ -19,6 +20,7 @@ const RepoContainer = styled.div`
 
 const RepoList: React.FC<Props> = ({userRepos}) => {
 
+  console.log(userRepos)
   return(
     <RepoContainer>
       {userRepos.map((repo: any) => (
@@ -28,6 +30,10 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
           description = {repo.description || "No Description"}
           language = {repo.language || "No Language Used"}
           url = {repo.svn_url}
+          size = {repo.size}
+          forks = {repo.fork}
+          stars = {repo.stagazers_count}
+          watches = {repo.watchers_count}
         />
       ))}
     </RepoContainer>
