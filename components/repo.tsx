@@ -23,7 +23,7 @@ const RepoCard = styled.div`
   border: 1px solid;
   margin: 0.3em;
   max-width: 20em;
-  height: 14em;
+  height: 12em;
   > p, div {
     margin-left: 0.3em;
   }
@@ -79,7 +79,7 @@ const GithubIconContainer = styled.div`
   flex-direction: row;
   justify-content: space-evenly;
   position: relative;
-  top: 17%;
+  top: 5%;
 `
 
 const GithubIconSpan = styled.span`
@@ -107,7 +107,6 @@ const Repo: React.FC<Props> = ({
   watches
   }) => {
 
-    console.log(forks, stars, watches)
   return(
     <RepoLink
       href = {url}

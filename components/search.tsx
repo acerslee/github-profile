@@ -10,12 +10,18 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   width: 50%;
+  @media (max-width: 850px) {
+    width: 80%;
+  }
 `
 
 const SearchText = styled.input`
   font-size: 2em;
   text-align: center;
   font-family: 'Anonymous Pro', monospace;
+  @media (max-width: 850px) {
+    font-size: 1.2em;
+  }
 `
 
 const SubmitButton = styled.input`
@@ -25,11 +31,16 @@ const SubmitButton = styled.input`
   margin-top: 1em;
   padding: 1em;
   font-size: 2em;
+  @media (max-width: 850px) {
+    padding: 0.5em;
+    margin-top: 0.5em;
+  }
 `
 
 const ErrorMessage = styled.p`
   color: red;
-  font-size: 1.3em;
+  font-size: 1.9em;
+  font-weight: bold;
 `
 
 const Searchbar: React.FC<Props> = ({updateUserData}) => {
@@ -60,6 +71,9 @@ const Searchbar: React.FC<Props> = ({updateUserData}) => {
 
   return(
     <>
+      {!isValidUser &&
+        <ErrorMessage>Cannot find that user!</ErrorMessage>
+      }
       <Form
         onSubmit = {handleSubmit}
         aria-label = "Github username search"
@@ -74,9 +88,6 @@ const Searchbar: React.FC<Props> = ({updateUserData}) => {
             value = "Search User"
         />
       </Form>
-      {!isValidUser &&
-        <ErrorMessage>Cannot find that user!</ErrorMessage>
-      }
     </>
   )
 };
