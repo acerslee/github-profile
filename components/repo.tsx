@@ -20,12 +20,16 @@ const RepoLink = styled.a`
 `
 
 const RepoCard = styled.div`
+  background-color: #fafafa;
   border: 1px solid;
   margin: 0.3em;
   height: 12em;
   min-width: 20em;
+  - webkit-box-shadow: 0 10px 6px -6px #777;
+  - moz-box-shadow: 0 10px 6px -6px #777;
+       box-shadow: 0 10px 6px -6px #444;
   > p, div {
-    margin-left: 0.3em;
+    margin-left: 0.2em;
   }
   @media(min-width: 800px){
     &: hover{
@@ -42,6 +46,7 @@ const RepoName = styled.p`
 `
 
 const RepoDescription = styled.p`
+  margin-left: 0.3em !important;
   font-size: 1em;
   display:inline-block;
   white-space: nowrap;

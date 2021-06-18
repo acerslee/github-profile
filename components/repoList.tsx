@@ -6,7 +6,7 @@ interface Props{
 }
 
 const RepoContainer = styled.div`
-  background-color: #e6e6e6 !important;
+  background-color: #8d8d8d;
   display: grid;
   grid-template-columns: auto auto auto auto;
   column-gap: normal;
