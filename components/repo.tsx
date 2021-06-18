@@ -27,8 +27,10 @@ const RepoCard = styled.div`
   > p, div {
     margin-left: 0.3em;
   }
-  &: hover{
-    background-color: #f2c957;
+  @media(min-width: 800px){
+    &: hover{
+      background-color: #f2c957;
+    }
   }
 `
 
@@ -46,6 +48,9 @@ const RepoDescription = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 34ch;
+  @media (max-width: 650px){
+    max-width: 40ch;
+  }
 `
 
 const RepoLabelAndSize = styled.div`
