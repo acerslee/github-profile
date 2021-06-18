@@ -17,7 +17,7 @@ const SearchText = styled.input`
 `
 
 const SubmitButton = styled.input`
-  background-color: #4d3800;
+  background-color: #262626;
   color: #ffffff;
   border: none;
   margin-top: 1em;

@@ -16,9 +16,6 @@ const RepoContainer = styled.div`
   @media(max-width: 850px){
     grid-template-columns: auto auto;
   }
-  // @media(max-width: 740px){
-  //   display: inline;
-  // }
 `;
 
 const RepoList: React.FC<Props> = ({userRepos}) => {

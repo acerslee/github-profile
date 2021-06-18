@@ -1,6 +1,15 @@
-import '../styles/globals.css'
+// import '../styles/globals.css'
 import type { AppProps } from 'next/app';
+import { createGlobalStyle } from 'styled-components';
 import Head from 'next/head';
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin: 0;
+    padding: 0
+    box-sizing: border-box;
+    font-family: 'Source Sans Pro', sans-serif;
+`
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -13,6 +22,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <meta name="msapplication-TileColor" content="#1A1E22" />
           <meta name="theme-color" content="#0070f3" />
       </Head>
+      <GlobalStyle />
       <Component {...pageProps} />
     </>
   )

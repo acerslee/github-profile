@@ -25,20 +25,18 @@ const RepoCard = styled.div`
   max-width: 20em;
   height: 14em;
   > p, div {
-    margin-left: 0.2em;
+    margin-left: 0.3em;
   }
   &: hover{
     background-color: #f2c957;
   }
-  // @media(max-width: 740px){
-  //   width: 100%;
-  // }
 `
 
 const RepoName = styled.p`
-  font-size: 2em;
+  font-size: 1.7em;
   font-family: 'Anonymous Pro', monospace;
   overflow-wrap: anywhere;
+  height: 1.2em;
 `
 
 const RepoDescription = styled.p`
@@ -48,6 +46,12 @@ const RepoDescription = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 34ch;
+`
+
+const RepoLabelAndSize = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-right: 0.3em;
 `
 
 const RepoLabelContainer = styled.div`
@@ -67,14 +71,15 @@ const RepoLanguageLabel = styled.span`
 `
 
 const RepoLanguage = styled.span`
-  margin-left: 0.3em;
+  margin-left: 0.2em;
 `
 
 const GithubIconContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-  margin: 0 0.2em;
+  position: relative;
+  top: 17%;
 `
 
 const GithubIconSpan = styled.span`
@@ -112,11 +117,15 @@ const Repo: React.FC<Props> = ({
       <RepoCard>
         <RepoName>{name}</RepoName>
         <RepoDescription>{description}</RepoDescription>
-        <RepoLabelContainer>
-          <RepoLanguageLabel style = {setLabelStyle(language)} />
-          <RepoLanguage>{language}</RepoLanguage>
+
+        <RepoLabelAndSize>
+          <RepoLabelContainer>
+            <RepoLanguageLabel style = {setLabelStyle(language)} />
+            <RepoLanguage>{language}</RepoLanguage>
+          </RepoLabelContainer>
           {size} KB
-        </RepoLabelContainer>
+        </RepoLabelAndSize>
+
         <GithubIconContainer>
           <GithubIconSpan>
             <GoRepoForked />
@@ -131,6 +140,7 @@ const Repo: React.FC<Props> = ({
             {watches}
           </GithubIconSpan>
         </GithubIconContainer>
+
       </RepoCard>
     </RepoLink>
   )

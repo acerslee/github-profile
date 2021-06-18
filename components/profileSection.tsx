@@ -32,6 +32,7 @@ const ProfileImage = styled(Image)`
 
 const ProfileName = styled.p`
   font-size: 2em;
+  margin: 0.5em 0;
 `
 
 const BoxContainer = styled.div`
