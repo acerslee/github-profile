@@ -14,6 +14,8 @@ const Form = styled.form`
 
 const SearchText = styled.input`
   font-size: 2em;
+  text-align: center;
+  font-family: 'Anonymous Pro', monospace;
 `
 
 const SubmitButton = styled.input`
