@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Searchbar from '../components/search';
 import Dashboard from '../components/dashboard';
+import Footer from '../components/footer';
+import { FaGithub } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const SearchComponent = styled.div`
@@ -11,8 +13,10 @@ const SearchComponent = styled.div`
   align-items: center;
 `
 
-const IntroHeader = styled.h1`
-  font-size: 3em;
+const GithubIcon = styled(FaGithub)`
+  height: 9rem;
+  width: 9rem;
+  margin-bottom: 1rem;
 `
 
 export default function Home() {
@@ -33,7 +37,7 @@ export default function Home() {
       {Object.keys(userData).length === 0
         ?
           <SearchComponent>
-            <IntroHeader>Github Profile</IntroHeader>
+            <GithubIcon />
             <Searchbar updateUserData = {updateUserData} />
           </SearchComponent>
         : <Dashboard
@@ -42,6 +46,7 @@ export default function Home() {
             userRepos = {userRepos}
           />
       }
+      <Footer />
     </>
   )
 }

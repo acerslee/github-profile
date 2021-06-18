@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { FaGithub } from 'react-icons/fa'
+import { GoRepoForked, GoStar, GoEye} from 'react-icons/go'
 
 interface Props {
   name: string,
@@ -30,6 +30,9 @@ const RepoCard = styled.div`
   &: hover{
     background-color: #f2c957;
   }
+  // @media(max-width: 740px){
+  //   width: 100%;
+  // }
 `
 
 const RepoName = styled.p`
@@ -40,6 +43,11 @@ const RepoName = styled.p`
 
 const RepoDescription = styled.p`
   font-size: 1em;
+  display:inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 34ch;
 `
 
 const RepoLabelContainer = styled.div`
@@ -62,6 +70,17 @@ const RepoLanguage = styled.span`
   margin-left: 0.3em;
 `
 
+const GithubIconContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 0 0.2em;
+`
+
+const GithubIconSpan = styled.span`
+
+`
+
 const setLabelStyle = (language: string) => {
   if (language === "JavaScript") return {backgroundColor: "#f1e05a"}
   if (language === "TypeScript") return {backgroundColor: "#2b7489"}
@@ -82,6 +101,8 @@ const Repo: React.FC<Props> = ({
   stars,
   watches
   }) => {
+
+    console.log(forks, stars, watches)
   return(
     <RepoLink
       href = {url}
@@ -94,7 +115,22 @@ const Repo: React.FC<Props> = ({
         <RepoLabelContainer>
           <RepoLanguageLabel style = {setLabelStyle(language)} />
           <RepoLanguage>{language}</RepoLanguage>
+          {size} KB
         </RepoLabelContainer>
+        <GithubIconContainer>
+          <GithubIconSpan>
+            <GoRepoForked />
+            {forks}
+          </GithubIconSpan>
+          <GithubIconSpan>
+            <GoStar />
+            {stars}
+          </GithubIconSpan>
+          <GithubIconSpan>
+            <GoEye />
+            {watches}
+          </GithubIconSpan>
+        </GithubIconContainer>
       </RepoCard>
     </RepoLink>
   )

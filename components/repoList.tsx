@@ -16,9 +16,9 @@ const RepoContainer = styled.div`
   @media(max-width: 850px){
     grid-template-columns: auto auto;
   }
-  @media(max-width: 740px){
-    grid-template-columns: auto;
-  }
+  // @media(max-width: 740px){
+  //   display: inline;
+  // }
 `;
 
 const RepoList: React.FC<Props> = ({userRepos}) => {
@@ -34,8 +34,8 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
           language = {repo.language || "No Language Used"}
           url = {repo.svn_url}
           size = {repo.size}
-          forks = {repo.fork}
-          stars = {repo.stagazers_count}
+          forks = {repo.forks_count}
+          stars = {repo.stargazers_count}
           watches = {repo.watchers_count}
         />
       ))}
