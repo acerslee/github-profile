@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Profile from "./profileSection"
 import RepoList from "./repoList"
-import { Button } from "@material-ui/core"
+import { FaArrowLeft } from "react-icons/fa";
 
 interface Props{
   backToSearch: Function,
@@ -10,34 +10,22 @@ interface Props{
   userRepos: any
 }
 
-const ReturnButton = styled(Button)`
+const ReturnButton = styled(FaArrowLeft)`
   position: absolute;
-  top: 4em;
-  left: 1em;
+  top: 1em;
+  left: 0.5em;
+  color: #f2f2f2;
+  font-size: 2em;
 `
 
-const DashboardContainer = styled.div`
-  height: auto;
-`;
-
-
-
 const Dashboard: React.FC<Props> = ({backToSearch, userData, userRepos}) => {
-
     return(
       <>
       {Object.keys(userData).length !== 0 && Object.keys(userRepos).length !== 0 &&
         <>
-          <ReturnButton
-            variant = "contained"
-            onClick = {() => backToSearch()}
-          >
-            Go back
-          </ReturnButton>
-          <DashboardContainer>
-            <Profile userData = {userData} />
-            <RepoList userRepos = {userRepos} />
-          </DashboardContainer>
+          <ReturnButton onClick = {() => backToSearch()} />
+          <Profile userData = {userData} />
+          <RepoList userRepos = {userRepos} />
         </>
       }
       </>
