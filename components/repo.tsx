@@ -22,8 +22,8 @@ const RepoLink = styled.a`
 const RepoCard = styled.div`
   border: 1px solid;
   margin: 0.3em;
-  max-width: 20em;
   height: 12em;
+  min-width: 20em;
   > p, div {
     margin-left: 0.3em;
   }
@@ -82,10 +82,6 @@ const GithubIconContainer = styled.div`
   top: 5%;
 `
 
-const GithubIconSpan = styled.span`
-
-`
-
 const setLabelStyle = (language: string) => {
   if (language === "JavaScript") return {backgroundColor: "#f1e05a"}
   if (language === "TypeScript") return {backgroundColor: "#2b7489"}
@@ -126,18 +122,18 @@ const Repo: React.FC<Props> = ({
         </RepoLabelAndSize>
 
         <GithubIconContainer>
-          <GithubIconSpan>
+          <span>
             <GoRepoForked />
-            {forks}
-          </GithubIconSpan>
-          <GithubIconSpan>
+            <span>{forks}</span>
+          </span>
+          <span>
             <GoStar />
             {stars}
-          </GithubIconSpan>
-          <GithubIconSpan>
+          </span>
+          <span>
             <GoEye />
             {watches}
-          </GithubIconSpan>
+          </span>
         </GithubIconContainer>
 
       </RepoCard>

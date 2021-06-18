@@ -10,17 +10,18 @@ const RepoContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto auto auto;
   column-gap: normal;
-  @media(max-width: 1200px){
+  @media(max-width: 1300px){
     grid-template-columns: auto auto auto;
   }
-  @media(max-width: 850px){
+  @media(max-width: 1000px){
     grid-template-columns: auto auto;
+  }
+  @media(max-width: 650px){
+    display: inline;
   }
 `;
 
 const RepoList: React.FC<Props> = ({userRepos}) => {
-
-  console.log(userRepos)
   return(
     <RepoContainer>
       {userRepos.map((repo: any) => (
