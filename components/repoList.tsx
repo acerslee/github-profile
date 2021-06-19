@@ -29,7 +29,11 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
 
   const handleSortRender = (choice: string) => {
 
-    const types = {
+    type filterTypes = {
+      [key: string]: string
+    }
+
+    const types: filterTypes = {
       size: 'size',
       watches: 'watchers_count',
       forks: 'forks_count',
@@ -41,6 +45,7 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
     setRepos(sorted)
   };
 
+  //this useEffect triggers whenever a new user is searched without refreshing the page
   useEffect(() => setRepos(userRepos), [userRepos])
 
   return(

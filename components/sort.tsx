@@ -5,9 +5,21 @@ interface Props{
 }
 
 const SortContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
+  font-size: 2rem;
+  margin: 0.2em;
+  @media(max-width: 750px){
+    font-size: 1.5rem;
+  }
+`
+
+const Selector = styled.select`
+  font-size: 2rem;
+  border: 1px solid;
+  width: 20%;
+  @media(max-width: 750px){
+    width: 50%;
+    font-size: 1.5rem;
+  }
 `
 
 const Sort: React.FC<Props> = ({ handleSortRender }) => {
@@ -18,18 +30,16 @@ const Sort: React.FC<Props> = ({ handleSortRender }) => {
 
   return(
     <SortContainer>
-      <h2>
-        Sort By:
-      </h2>
-      <select onChange = {handleChange} defaultValue = {"none"}>
+      <label htmlFor = "filter-select">Sort By: </label>
+      <Selector id = "filter-select" onChange = {handleChange} defaultValue = {"none"}>
         <option value = "none" disabled hidden>
-          Select an Option
+          Select
         </option>
         <option value = "size">Size</option>
         <option value = "watches">Watches</option>
         <option value = "forks">Forks</option>
         <option value = "stars">Stars</option>
-      </select>
+      </Selector>
     </SortContainer>
   )
 }

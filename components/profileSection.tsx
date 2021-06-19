@@ -32,7 +32,10 @@ const ProfileImage = styled(Image)`
 
 const ProfileName = styled.p`
   font-size: 2em;
-  margin: 0.5em 0;
+  margin: 0.5em 0 0 0;
+  @media(max-width: 750px){
+    margin: 0.15em;
+  }
 `
 
 const BoxContainer = styled.div`
@@ -69,7 +72,8 @@ const Profile: React.FC<Props> = ({userData}) => {
         width = {200}
         height = {200}
       />
-      <ProfileName>{userData.name} ({userData.login})</ProfileName>
+      <ProfileName>{userData.name}</ProfileName>
+      <ProfileDetail>@{userData.login}</ProfileDetail>
       <ProfileDetail>{userData.bio}</ProfileDetail>
       <ProfileDetail>{userData.location}</ProfileDetail>
       <BoxContainer>
