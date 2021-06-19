@@ -35,8 +35,7 @@ export default function Home() {
   return (
     <>
       {Object.keys(userData).length === 0
-        ?
-          <SearchComponent>
+        ? <SearchComponent>
             <GithubIcon />
             <Searchbar updateUserData = {updateUserData} />
           </SearchComponent>
