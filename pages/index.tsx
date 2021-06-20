@@ -6,7 +6,7 @@ import { FaGithub } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const SearchComponent = styled.div`
-  height: 92vh;
+  height: 94vh;
   background-color: #262626;
   display: flex;
   flex-direction: column;
