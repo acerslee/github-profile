@@ -91,7 +91,7 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
             <>
               {itemsToShow >= userRepos.length
                 ? <ShowMoreText>No more repos to load</ShowMoreText>
-                : <ShowMoreText onClick = {showMoreLoader}>🡇 Click here to load more repos 🡇</ShowMoreText>
+                : <ShowMoreText onClick = {showMoreLoader}>Click here to load more repos</ShowMoreText>
               }
             </>
           }

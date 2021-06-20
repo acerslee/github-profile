@@ -8,11 +8,7 @@ const FooterContainer = styled.footer`
 
 const FooterText = styled.p`
   font-family: 'Anonymous Pro', monospace;
-  margin-left: 2em;
-  @media (max-width: 850px) {
-    text-align: center;
-    margin-left: 0;
-  }
+  text-align: center;
 `;
 
 const date = new Date().getFullYear();
