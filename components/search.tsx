@@ -9,7 +9,7 @@ interface Props{
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 40%;
   @media (max-width: 850px) {
     width: 80%;
   }

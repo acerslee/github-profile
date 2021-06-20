@@ -6,7 +6,8 @@ import { FaGithub } from 'react-icons/fa';
 import styled from 'styled-components';
 
 const SearchComponent = styled.div`
-  height: 100vh;
+  height: 92vh;
+  background-color: #262626;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,6 +18,7 @@ const GithubIcon = styled(FaGithub)`
   height: 9rem;
   width: 9rem;
   margin-bottom: 1rem;
+  color: #a58545;
 `
 
 export default function Home() {

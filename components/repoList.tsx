@@ -23,9 +23,16 @@ const RepoContainer = styled.div`
   }
 `;
 
+const ShowMoreText = styled.p`
+  text-align:center;
+`;
+
 const RepoList: React.FC<Props> = ({userRepos}) => {
 
-  const [repos, setRepos] = useState<(string | number)[]>([]);
+  const [repos, setRepos] = useState<any>([]);
+
+  //for mobile only
+  const [itemsToShow, setItemsToShow] = useState<number>(10);
 
   const handleSortRender = (choice: string) => {
 
@@ -41,12 +48,25 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
     };
 
     const sortProperty = types[choice];
-    const sorted = [...userRepos].sort((a, b) => b[sortProperty] - a[sortProperty]);
+    const sorted = [...repos].sort((a, b) => b[sortProperty] - a[sortProperty]);
     setRepos(sorted)
   };
 
+  //for mobile only
+  const showMoreLoader = () => {
+    setRepos(userRepos.slice(0, itemsToShow + 5))
+    setItemsToShow(itemsToShow + 5)
+  };
+
   //this useEffect triggers whenever a new user is searched without refreshing the page
-  useEffect(() => setRepos(userRepos), [userRepos])
+  useEffect(() => {
+    if (window.screen.width < 750) {
+      let slicedUserRepos = userRepos.slice(0, 10)
+      setRepos(slicedUserRepos)
+      setItemsToShow(10)
+    }
+      else setRepos(userRepos)
+  },[userRepos])
 
   return(
     <>
@@ -67,6 +87,14 @@ const RepoList: React.FC<Props> = ({userRepos}) => {
               watches = {repo.watchers_count}
             />
           ))}
+          {window.screen.width < 750 &&
+            <>
+              {itemsToShow >= userRepos.length
+                ? <ShowMoreText>No more repos to load</ShowMoreText>
+                : <ShowMoreText onClick = {showMoreLoader}>🡇 Click here to load more repos 🡇</ShowMoreText>
+              }
+            </>
+          }
         </RepoContainer>
       </>
     }
